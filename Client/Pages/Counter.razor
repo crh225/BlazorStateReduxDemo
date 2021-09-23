@@ -8,7 +8,8 @@
 
 <p>Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me to increase</button>
+<button class="btn btn-primary" @onclick="DecrementCount">Click me decrease</button>
 
 @code {
     CounterState CounterState => GetState<CounterState>();
@@ -17,6 +18,11 @@
 
     void IncrementCount()
     {
-        Mediator.Send(new CounterState.IncrementCountAction { Amount = 5 });
+        Mediator.Send(new CounterState.IncrementCountAction { Amount = 1 });
+    }
+
+    void DecrementCount()
+    {
+        Mediator.Send(new CounterState.DecrementCountAction { Amount = 1 });
     }
 }
