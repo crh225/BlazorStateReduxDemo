@@ -1,18 +1,12 @@
 @page "/counter"
-@using BlazorState
-@using BlazorRedux.Client.Features.Counter
 
-@inherits BlazorStateComponent
 
 <h1>Counter</h1>
 
-<CurrentCount/>
-<CurrentCount /> Second component Instance
+<CurrentCount />
+Second count component Instance:
+<CurrentCount />
 
-<IncreaseButton/>
-<DecreaseButton/>
-<ResetButton/>
-
-@code {
-
-}
+<IncreaseButton />
+<DecreaseButton />
+<ResetButton />
