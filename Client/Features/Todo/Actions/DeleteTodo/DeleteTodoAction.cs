@@ -10,7 +10,7 @@ namespace BlazorRedux.Client.Features.Todo
 
     public partial class TodosState
     {
-        public class AddTodoAction : IAction
+        public class DeleteTodoAction : IAction
         {
             public string payload { get; set; }
         }

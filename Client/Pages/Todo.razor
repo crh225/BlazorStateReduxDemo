@@ -8,10 +8,10 @@
 
 Pulling values from state object:
 <ul>
-    @for (int x=0;x< items.Count; x++)
+    @foreach (var item in items)
     {
         <li>
-            @items[@x]
+        @item<span class="oi oi-delete" aria-hidden="true" @onclick="() => DeleteTodo(item)"></span>
         </li>
     }
 </ul>
@@ -27,14 +27,19 @@ Pulling values from state object:
 
     string stringValue = "";
 
-    private void SetValue(string Value)
+    private void SetValue(string value)
     {
-        stringValue = Value;
+        stringValue = value;
     }
 
     private void AddTodo()
     {
-        Mediator.Send(new TodosState.AddTodoAction { chore = stringValue });
+        Mediator.Send(new TodosState.AddTodoAction { payload = stringValue });
         SetValue("");
+    }
+
+    private void DeleteTodo(string value)
+    {
+        Mediator.Send(new TodosState.DeleteTodoAction { payload = value });
     }
 }

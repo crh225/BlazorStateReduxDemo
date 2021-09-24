@@ -15,7 +15,7 @@
 
             public override Task<Unit> Handle(TodosState.AddTodoAction aTodoAction, CancellationToken aCancellationToken)
             {
-                State.TheList.Add(aTodoAction.chore);
+                State.TheList.Add(aTodoAction.payload);
                 return Unit.Task;
             }
         }
