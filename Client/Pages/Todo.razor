@@ -1,0 +1,24 @@
+@page "/todo"
+@using BlazorState
+@using BlazorRedux.Client.Features.Todo
+
+@inherits BlazorStateComponent
+
+<h1>Todos</h1>
+
+Pulling values from state object:
+<ul>
+    @for (int x=0;x< items.Count; x++)
+    {
+        <li>
+            @items[@x]
+        </li>
+    }
+</ul>
+
+@code {
+
+    TodoState TodoState => GetState<TodoState>();
+
+    private List<String> items => TodoState.TheList;
+}

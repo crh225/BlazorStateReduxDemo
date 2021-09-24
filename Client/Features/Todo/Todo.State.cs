@@ -1,0 +1,15 @@
+﻿using System.Collections.Generic;
+
+namespace BlazorRedux.Client.Features.Todo
+{
+    using BlazorState;
+
+    public partial class TodoState : State<TodoState>
+    {
+        public List<string> TheList { get; private set; }
+        public override void Initialize() => TheList = new List<string>()
+        {
+            "Add text box for input", "add submit button"
+        };
+    }
+}
