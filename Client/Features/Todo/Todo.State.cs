@@ -9,7 +9,7 @@ namespace BlazorRedux.Client.Features.Todo
         public List<string> TheList { get; private set; }
         public override void Initialize() => TheList = new List<string>()
         {
-            "Add text box for input", "add submit button"
+            "Refactor into individual components", "Add remove button and actions"
         };
     }
 }

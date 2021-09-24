@@ -5,17 +5,17 @@
     using BlazorState;
     using MediatR;
 
-    public partial class TodosState
+    public partial class TodoState
     {
         public class AddTodoHandler : ActionHandler<TodosState.AddTodoAction>
         {
             public AddTodoHandler(IStore aStore) : base(aStore) { }
 
-            TodosState TodoState => Store.GetState<TodosState>();
+            TodoState State => Store.GetState<TodoState>();
 
-            public override Task<Unit> Handle(TodosState.AddTodoAction aIncrementCountAction, CancellationToken aCancellationToken)
+            public override Task<Unit> Handle(TodosState.AddTodoAction aTodoAction, CancellationToken aCancellationToken)
             {
-                //TodoState.list = TodoState.list
+                State.TheList.Add(aTodoAction.chore);
                 return Unit.Task;
             }
         }

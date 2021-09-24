@@ -16,9 +16,25 @@ Pulling values from state object:
     }
 </ul>
 
+<input value="@stringValue" @oninput="(EventArgs) => {SetValue(EventArgs.Value.ToString());}" />
+<button class="btn btn-primary" @onclick="AddTodo">Add Todo</button>
+
 @code {
 
-    TodoState TodoState => GetState<TodoState>();
+    TodoState State => GetState<TodoState>();
 
-    private List<String> items => TodoState.TheList;
+    private List<String> items => State.TheList;
+
+    string stringValue = "";
+
+    private void SetValue(string Value)
+    {
+        stringValue = Value;
+    }
+
+    private void AddTodo()
+    {
+        Mediator.Send(new TodosState.AddTodoAction { chore = stringValue });
+        SetValue("");
+    }
 }
