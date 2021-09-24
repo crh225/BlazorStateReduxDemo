@@ -9,8 +9,4 @@
 
     private int currentCount => CounterState.Count;
 
-    void IncrementCount()
-    {
-        Mediator.Send(new CounterState.IncrementCountAction { Amount = 1 });
-    }
 }
