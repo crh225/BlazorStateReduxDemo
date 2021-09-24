@@ -1,0 +1,22 @@
+﻿@using BlazorState
+@inherits BlazorStateComponent
+
+<h3>AddButton</h3>
+<input value="@stringValue" @oninput="(EventArgs) => {SetValue(EventArgs.Value.ToString());}" />
+<button class="btn btn-primary" @onclick="AddNewTodo">Add Todo</button>
+
+@code {
+    string stringValue = "";
+
+    private void SetValue(string value)
+    {
+        stringValue = value;
+    }
+
+    private void AddNewTodo()
+    {
+        Mediator.Send(new TodoState.AddTodoAction { payload = stringValue });
+        SetValue("");
+    }
+
+}

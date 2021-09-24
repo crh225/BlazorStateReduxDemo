@@ -8,7 +8,7 @@ namespace BlazorRedux.Client.Features.Todo
 
     using BlazorState;
 
-    public partial class TodosState
+    public partial class TodoState
     {
         public class AddTodoAction : IAction
         {
