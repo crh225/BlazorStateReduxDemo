@@ -1,0 +1,16 @@
+﻿@using BlazorState
+@inherits BlazorStateComponent
+
+<p>Current count: @currentCount</p>
+
+
+@code {
+    CounterState CounterState => GetState<CounterState>();
+
+    private int currentCount => CounterState.Count;
+
+    void IncrementCount()
+    {
+        Mediator.Send(new CounterState.IncrementCountAction { Amount = 1 });
+    }
+}

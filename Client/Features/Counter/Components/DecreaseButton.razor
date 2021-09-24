@@ -1,0 +1,16 @@
+﻿@using BlazorState
+@inherits BlazorStateComponent
+
+<button class="btn btn-primary" @onclick="DecrementCount">Click me to decrease</button>
+
+
+@code {
+    CounterState CounterState => GetState<CounterState>();
+
+    private int currentCount => CounterState.Count;
+
+    void DecrementCount()
+    {
+        Mediator.Send(new CounterState.DecrementCountAction { Amount = 1 });
+    }
+}

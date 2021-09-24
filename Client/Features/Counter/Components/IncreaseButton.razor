@@ -1,0 +1,17 @@
+﻿@using BlazorState
+@inherits BlazorStateComponent
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me to increase</button>
+
+
+@code {
+    CounterState CounterState => GetState<CounterState>();
+
+    private int currentCount => CounterState.Count;
+
+    void IncrementCount()
+    {
+        Mediator.Send(new CounterState.IncrementCountAction { Amount = 1 });
+    }
+
+}

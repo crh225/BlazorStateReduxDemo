@@ -6,29 +6,13 @@
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<CurrentCount/>
+<CurrentCount /> Second component Instance
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me to increase</button>
-<button class="btn btn-primary" @onclick="DecrementCount">Click me to decrease</button>
-<button class="btn btn-primary" @onclick="ResetCount">Click me to reset</button>
+<IncreaseButton/>
+<DecreaseButton/>
+<ResetButton/>
 
 @code {
-    CounterState CounterState => GetState<CounterState>();
 
-    private int currentCount => CounterState.Count;
-
-    void IncrementCount()
-    {
-        Mediator.Send(new CounterState.IncrementCountAction { Amount = 1 });
-    }
-
-    void DecrementCount()
-    {
-        Mediator.Send(new CounterState.DecrementCountAction { Amount = 1 });
-    }
-
-    void ResetCount()
-    {
-        Mediator.Send(new CounterState.ResetCountAction { Amount = 0 });
-    }
 }
