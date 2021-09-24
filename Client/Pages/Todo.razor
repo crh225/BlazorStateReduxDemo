@@ -24,7 +24,7 @@ Pulling values from state object:
 
     private List<String> items => State.TheList;
 
-
+    // todo: refactor into own component
     private void DeleteTodo(string value)
     {
         Mediator.Send(new TodosState.DeleteTodoAction { payload = value });
